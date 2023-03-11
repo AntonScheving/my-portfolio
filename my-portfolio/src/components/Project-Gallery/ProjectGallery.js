@@ -1,7 +1,7 @@
 import React from 'react'
 import './ProjectGallery.css';
-import './Media-Queries.css';
-import './Shared-Styles.css';
+import '../Styles/Media-Queries.css';
+import '../Styles/Shared-Styles.css';
 
 export default function ProjectGallery() {
   return (
