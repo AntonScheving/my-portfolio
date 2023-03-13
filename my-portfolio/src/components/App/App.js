@@ -8,15 +8,18 @@ import ProjectGallery from '../Project-Gallery/ProjectGallery';
 import Project from '../Project/Project';
 import Contact from '../Contact/Contact';
 
+const linksArray = ["Packages", "Projects", "Contact", "CV/Resume", "About Me" ];
+
 export default function App() {
   return (
    <>
      <StyledEngineProvider injectFirst>
    <Router> 
     <div className="App">
-      <Header />
+      <Header links={linksArray} />
         <Routes>
           <Route exact path="/" component={Home} />
+          {/* <Route path="/packages" component={packages} /> */}
           <Route exact path="/projects" component={ProjectGallery} />
           <Route path="/projects/:id" component={Project} />
           <Route path="/contact" component={Contact} />
