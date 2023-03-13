@@ -1,95 +1,74 @@
-import * as React from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-// import "../components/Styles/Media-Queries.css";
-// import Typography from "@mui/material";
+import React, { useState } from "react";
+import "../Styles/Media-Queries.css";
 import "../Header/Header.css";
-// import { createTheme, ThemeProvider } from "@mui/material";
+import DrawerComp from "../Drawer/DrawerComp.js"
+import Grid from "@mui/material/Grid";
+import LogoDevIcon from '@mui/icons-material/LogoDev';
+import {
+  AppBar,
+  Toolbar,
+  Tabs,
+  Tab,
+  useTheme,
+  useMediaQuery,
+  Typography,
+} from "@mui/material";
+// import Toolbar from "@mui/material/Toolbar";
+// // import Typography from "@mui/material/Typography";
+// // import SpellcheckIcon from "@material-ui/icons-SpellcheckIcon";
+// import Tabs from "@mui/material/Tabs";
+// import Tab from "@mui/material/Tab";
+// import Drawer from "@mui/material/Drawer";
+// import MenuOpenRoundedIcon from '@mui/icons-material/MenuOpenRounded';
+// import List from "@mui/material/List";
 
-// const theme = createTheme({
-//   components: {
-//     MuiTypography: {
-//       variants: [
-//         {
-//           props: {
-//             variant: "headerTabs",
-//           },
-//           style: {
-//             fontSize: 50,
-//           },
-//         },
-//       ],
-//     },
-//   },
-// });
-
-export default function ColorTabs() {
-  const [value, setValue] = React.useState("one");
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
-
+export default function Header({ links }) {
+  const [value, setValue] = useState();
+  
+  const theme = useTheme();
+  // isMatch is a booleean - If the match is true the theme (Drawer) will be displayed
+  const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    <>
-      <Box sx={{}}>
-        {/* <ThemeProvider theme={theme}> */}
-        <Tabs
-        className="header"
-          value={value}
-          onChange={handleChange}
-          centered
-          textColor="secondary"
-          indicatorColor="secondary"
-          aria-label="secondary tabs example"
-        >
-          <Tab sx={{  fontSize: "16px"  }} className="header" Variant="headerTabs" value="one" label="Projects" />
-          <Tab sx={{ fontSize: "16px" }} value="two" label="Packages" />
-          <Tab sx={{ fontSize: "16px" }} value="three" label="Contact" />
-          <Tab sx={{ fontSize: "16px" }} value="four" label="CV/Resume" />
-          <Tab sx={{ fontSize: "16px" }} value="five" label="About me" />
-        </Tabs>
-        {/* </ThemeProvider> */}
-      </Box>
-    </>
+    <AppBar className="navBackground">
+      <Toolbar>
+
+        {/* <Grid container spacing={1} [1=3px]> */}
+        {isMatch ? (<> 
+          <Typography>
+              <LogoDevIcon />
+            </Typography>
+          <DrawerComp links={links} />
+        
+        </> ): (
+        <Grid className="navCenter" container>
+          <Grid item xs={1}>
+            <Typography>
+              <LogoDevIcon />
+            </Typography>
+            
+          </Grid>
+          <Grid item xs={11}>
+            <Tabs
+              indicatorColor="secondary"
+              textColor="inherit"
+              value={value}
+              onChange={(e, val) => setValue(val)}
+            >
+              {links.map((link, index) => (
+                <Tab className="NavLink" key={index} label={link} />
+              ))}
+              {/* <Tab className="NavLink" label="Packages" />
+                <Tab className="NavLink" label="Projects" />
+                <Tab className="NavLink" label="Contact" />
+                <Tab className="NavLink" label="CV/Resume" />
+                <Tab className="NavLink" label="About Me" /> */}
+            </Tabs>
+          </Grid>
+          <Grid item xs={1} />
+        </Grid> 
+        )}
+        
+      </Toolbar>
+    </AppBar>
   );
 }
-
-// function LinkTab(props) {
-//   return (
-//     <Tab
-//       component="a"
-//       onClick={(event) => {
-//         event.preventDefault();
-//       }}
-//       {...props}
-//     />
-//   );
-// }
-
-// export default function NavTabs() {
-//   const [value, setValue] = React.useState(0);
-
-//   const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   };
-
-//   return (
-//     <Header className="Header">
-//       <Box sx={{ width: "100%" }}>
-//         <Tabs
-//           value={value}
-//           onChange={handleChange}
-//           aria-label="nav tabs example"
-//         >
-//           <LinkTab value="one" label="Projects" />
-//           <LinkTab value="two" label="Packages" />
-//           <LinkTab value="three" label="Contact" />
-//           <LinkTab value="two" label="CV/Resume" />
-//           <LinkTab value="three" label="About me" />
-//         </Tabs>
-//       </Box>
-//     </Header>
-//   );
-// }

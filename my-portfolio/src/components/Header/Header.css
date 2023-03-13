@@ -1,5 +1,35 @@
-.Mui-selected.header {
-   font-weight: bold !important;
-   color: red;
+/* .Mui-selected.header {
+   font-weight: bolder;
+   font-size: larger;
+   color: rgb(95, 21, 224);
+} */
+
+div {
+    font-weight: bolder;
+    font-size: larger;
+    color: hsl(261, 88%, 3%);
+ }
+
+ .NavLink {
+    font-weight: bolder;
+    font-size: medium;
+    color: rgb(6, 0, 14);
     
-}
+ }
+
+ .navBackground {
+    background-color: transparent;
+ }
+
+ .navCenter {
+    place-items: center;
+ }
+
+ .iconButton {
+    margin-left: auto;
+    color: black;
+ }
+
+ .drawer {
+    background-color: green;
+ }
