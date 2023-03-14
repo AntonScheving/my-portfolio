@@ -1,0 +1,7 @@
+.hero {
+    height: 90vh;
+    /* min-height: ; */
+    /* background-color: green; */
+    background-image: url("/public/assets/images/hero-background.png");
+
+}
