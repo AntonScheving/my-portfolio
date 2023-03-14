@@ -13,7 +13,7 @@ export default function DrawerComp({ links }) {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Drawer PaperProps anchor="right" open={open} onClose={() => setOpen(false)}>
+      <Drawer PaperProps={{ className: 'drawer' }} anchor="right" open={open} onClose={() => setOpen(false)}>
         <List >
           {links.map((links, index) => (
             <ListItemButton>
