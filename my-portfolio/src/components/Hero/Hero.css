@@ -3,5 +3,96 @@
     /* min-height: ; */
     /* background-color: green; */
     background-image: url("/public/assets/images/hero-background.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-top: 75px;
 
+}
+
+.hero-container {
+    height: 100%;
+    
+}
+
+.hero-grid {
+align-items: center;
+height: 100%;
+z-index: 90;
+position: relative;
+display: flex;
+
+/* justify-content: space-evenly; */
+justify-content: space-evenly;
+
+}
+
+.featured-project-image {
+    height: 50%;
+    width: 50%;
+   background-image: url("/public/assets/images/My-Weather-Dashboard-screenshot.png");
+   aspect-ratio: 1 / 1;
+   z-index: 100;
+   background-size: contain;
+   background-repeat: no-repeat;
+   /* margin-top: 15%; */
+   /* position:sticky; */
+}
+
+.hero-profile-and-text {
+    align-items: center;
+    position: relative;
+
+    /* display: grid; */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* position: relative; */
+    /* max-width:fit-content; */
+    place-self: center;
+    margin-left: 55px;
+    padding-right: 5px;
+
+}
+
+.hero-profile {
+    height: 25%;
+    width: 25%;
+    /* display: inline-block; */
+    background-image: url("/public/assets/images/Anton-Scheving-profile-picture.png");
+   
+   aspect-ratio: 112 / 113;
+   z-index: 100;
+   background-size: contain;
+   background-repeat: no-repeat;
+   /* align-items: center;
+   background-position: center; */
+   /* position: relative; */
+   /* place-self: center; */
+
+  
+  image-rendering: auto;
+  /* float: right;  */
+  /* padding: 0 20px 20px 0; */
+  /* shape-outside: circle(); */
+}
+
+.hero-text {
+    /* display: inline-block; */
+    color: aliceblue;
+    background-color: transparent;
+    align-items: center;
+    position: relative;
+    place-self: center;
+
+
+    /* background-image: url("/public/assets/images/My-Weather-Dashboard-screenshot.png"); */
+   /* aspect-ratio: 5 / 1; */
+   /* z-index: 100; */
+   /* background-size: contain; */
+   /* background-repeat: no-repeat; */
+   /* display: inline-flex;  */
+  /* image-rendering: auto; */
+  /* float: right;  */
+  /* padding: 0 20px 20px 0; */
+  /* shape-outside: circle(); */
 }

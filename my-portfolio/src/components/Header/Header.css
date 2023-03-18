@@ -19,6 +19,7 @@ div {
 
  .navBackground {
     background-color: transparent;
+    display: block;
  }
 
  .navCenter {
