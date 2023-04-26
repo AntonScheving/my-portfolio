@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../Styles/Media-Queries.css";
 import "../Header/Header.css";
-import DrawerComp from "../Drawer/DrawerComp.js"
+import DrawerComp from "../Drawer/DrawerComp.js";
 import Grid from "@mui/material/Grid";
-import LogoDevIcon from '@mui/icons-material/LogoDev';
+import AntonScheving from "../images/AntonScheving.png";
 import {
   AppBar,
   Toolbar,
@@ -31,43 +31,47 @@ export default function Header({ links }) {
   return (
     <AppBar className="navBackground">
       <Toolbar>
-
         {/* <Grid container spacing={1} [1=3px]> */}
-        {isMatch ? (<> 
-          <Typography>
-              <LogoDevIcon />
-            </Typography>
-          <DrawerComp links={links} />
-        
-        </> ): (
-        <Grid className="navCenter" container>
-          <Grid item xs={1}>
+        {isMatch ? (
+          <>
             <Typography>
-              <LogoDevIcon />
+              <image
+                src={AntonScheving}
+                alt="Anton Scheving profile logo"
+              ></image>
             </Typography>
-            
-          </Grid>
-          <Grid item xs={11}>
-            <Tabs
-              indicatorColor="secondary"
-              textColor="inherit"
-              value={value}
-              onChange={(e, val) => setValue(val)}
-            >
-              {links.map((link, index) => (
-                <Tab className="NavLink" key={index} label={link} />
-              ))}
-              {/* <Tab className="NavLink" label="Packages" />
+            <DrawerComp links={links} />
+          </>
+        ) : (
+          <Grid className="navCenter" container>
+            <Grid item xs={1}>
+              <Typography>
+                <image>
+                  src={AntonScheving}
+                  alt="Anton Scheving profile logo"
+                </image>
+              </Typography>
+            </Grid>
+            <Grid item xs={11}>
+              <Tabs
+                indicatorColor="secondary"
+                textColor="inherit"
+                value={value}
+                onChange={(e, val) => setValue(val)}
+              >
+                {links.map((link, index) => (
+                  <Tab className="NavLink" key={index} label={link} />
+                ))}
+                {/* <Tab className="NavLink" label="Packages" />
                 <Tab className="NavLink" label="Projects" />
                 <Tab className="NavLink" label="Contact" />
                 <Tab className="NavLink" label="CV/Resume" />
                 <Tab className="NavLink" label="About Me" /> */}
-            </Tabs>
+              </Tabs>
+            </Grid>
+            <Grid item xs={1} />
           </Grid>
-          <Grid item xs={1} />
-        </Grid> 
         )}
-        
       </Toolbar>
     </AppBar>
   );
